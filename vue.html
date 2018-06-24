@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE-Page</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+    <style>
+        ul{
+            margin: 0;
+         padding: 0;
+        }
+     ul li{
+         display: inline-block;
+         width: 120px;
+         height: 50px;
+         border: solid red 1px;
+         list-style: none;
+         text-align: center;
+         line-height: 50px;
+
+     }
+     .content{
+         height: 100px;
+         width: 360px;
+         border: 1px solid blue;
+         text-align: center;
+         line-height:40px;
+     }
+    </style>
+</head>
+<body>
+    <div id="app">
+            <div class="tab">
+                <ul>
+                    <li v-for="(item,index) in arr" v-on:click="tabindex=index">
+                        {{item}}
+                    </li>
+                </ul>
+              
+            </div>
+            <div class="content">
+                <div v-for="(item,index) in arr2" v-show="tabindex==index">
+                 标志：   {{item.intrest}}  &nbsp;<br>
+                  作品：  {{item.works}}
+                  
+                </div>
+            </div>
+    </div>
+</body>
+</html>
+<script>
+  var vm = new Vue({
+      el:'#app',
+      tabindex:0,
+      method:{
+            toggle:function(){
+                this.show = !this.show;
+            }
+      },
+      data:{
+          arr:['邓超','孙俪','刘涛'],
+          tabindex:0,
+          show:true,
+          arr2:[
+              {
+                intrest:'搞怪',
+                works:'分手大师',
+              },
+              {
+                intrest:'美美哒',
+                works:'甄嬛传',
+              },
+              {
+                intrest:'贤妻良母',
+                works:'芈月传',
+            },]
+      }
+  })
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Your input is {{message}}</h1>
+        <input type="text" v-model="message">
+        <ul>
+            <li v-for='item in arr'>
+                {{item}}
+            </li>
+        </ul>
+        <ul>
+           <li v-for='item in arr1'>
+                  姓名： {{item.name}} &nbsp;
+                  年龄： {{item.age}} &nbsp;
+                  性别： {{item.sex}} &nbsp;
+            </li>
+        </ul>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                message:'',
+                arr:['范冰冰','孙俪','李晟','邓超','刘涛'],
+                arr1:[
+                    {
+                      name:'范冰冰',
+                      age:20,
+                       sex:'女',
+                    },
+                    {
+                      name:'孙俪',
+                       age:20,
+                       sex:'女',
+                    },
+                    {
+                      name:'李晨',
+                       age:20,
+                       sex:'男',
+                    },  
+                     {
+                      name:'邓超',
+                       age:20,
+                       sex:'男',
+                    }
+                ],
+            }
+        })
+    </script>
+</body>
+</html>
